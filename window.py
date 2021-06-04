@@ -24,14 +24,20 @@ entry.place(relx=0.22, rely=0.4)
 
 # Making the check button functional
 def check():
-    if entry.get() == '':
-        messagebox.showerror('Enter an amount')
+    try:
+        amount = int(entry.get())
+        if amount == '':
+          messagebox.showerror(message='Enter an amount')
 
-    elif entry.get() <= 3000:
-        messagebox.showinfo('Congratulations! You qualify to go to Malaysia')
+       if amount >= 3000:
+           messagebox.showinfo(message='Congratulations! You qualify to go to Malaysia')
 
-    else:
-        messagebox.showerror('You do not qualify to go to Malaysia')
+       else:
+           messagebox.showerror(message='You do not qualify to go to Malaysia')
+
+
+    except ValueError:
+        messagebox.showerror(message='Enter a valid amount')
 
 
 # Creating & positioning the check button with a background color

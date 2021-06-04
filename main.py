@@ -46,7 +46,8 @@ def authenticate():
 
         elif name in user_key:
             if passkey == user_key[name]:
-                messagebox.showinfo(message='Successful')
+                root.destroy()
+                import window
             else:
                 messagebox.showerror(message='Incorrect password')
 
